@@ -1,20 +1,18 @@
-import { useEffect, useState } from 'react'
-import axios  from 'axios'
-
-function App() {
-  const [data, setData] = useState([])
-  useEffect(() => {
-    axios.get("./test.json")
-    .then(res => setData(res.data.data))
-    .catch(err => console.log(err))
-  }, []);
-
-
-  
+import { useEffect, useState } from 'react';
+import { Link, Routes, Router, Route, useParams } from "react-router-dom";
+import axios  from 'axios';
+import IssuePage from './IssuePage';
+import HomePage
+ from './HomePage';
+ 
+const App = () => {
   return (
-    <ul>
-    {data.map(instance => <li>{instance.uuid}</li>)}  
-    </ul> 
+    <>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/issue/:issueId" element={<IssuePage />} />
+      </Routes>
+    </>  
   )
 }
 
