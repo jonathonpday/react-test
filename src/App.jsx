@@ -11,8 +11,8 @@ const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/issue/:issueId" element={<IssuePage />} />
+        <Route path="/react-test/" element={<HomePage />} />
+        <Route path="/react-test/issue/:issueId" element={<IssuePage />} />
       </Routes>
       <Footer />
     </>  

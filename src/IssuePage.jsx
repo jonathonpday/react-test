@@ -8,7 +8,7 @@ const IssuePage = ({match}) => {
   const [issue, setIssue] = useState({});
 
   useEffect(() => {
-    axios.get('/test.json')
+    axios.get('/public/test.json')
     .then((res) => setIssue(res.data.data.find((issue) => issue.uuid === issueId)))
     .catch(err => console.log(err))
   }, [issueId]);

@@ -16,16 +16,6 @@
   /* background-color: hsl(198, 76.1%, 82.7%); */
 }
 
-/* .link {
-  background-color: hsl(198, 76.1%, 42.7%);
-  box-shadow: 0 5px 0 hsl(198, 76.1%, 22.7%);
-  color: white;
-  padding: 1em 1.5em;
-  position: relative;
-  text-decoration: none;
-  font-family: 'Roboto';
-  transition: transform .2s; /* Animation */
-
 .link {
   background-color: #fff;
   border: 1px solid #cacaca;

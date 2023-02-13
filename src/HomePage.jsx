@@ -7,7 +7,7 @@ const HomePage = () => {
   const [issues, setIssues] = useState([]);
 
   useEffect(() => {
-    axios.get("./test.json")
+    axios.get("/public/test.json")
     .then(res => setIssues(res.data.data))
     .catch(err => console.log(err))
   }, []);
