@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom";
+import axios  from 'axios'
 import './IssuePage.css'
 
 const IssuePage = ({match}) => {
@@ -7,9 +8,8 @@ const IssuePage = ({match}) => {
   const [issue, setIssue] = useState({});
 
   useEffect(() => {
-    fetch('/test.json')
-    .then(res => res.json())
-    .then((res) => setIssue(res.data.find((issue) => issue.uuid === issueId)))
+    axios.get("/react-test/test.json")
+    .then((res) => setIssue(res.data.data.find((issue) => issue.uuid === issueId)))
     .catch(err => console.log(err))
   }, [issueId]);
 
