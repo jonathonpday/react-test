@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import axios  from 'axios'
+import './HomePage.css'
 
 const HomePage = () => {
   const [issues, setIssues] = useState([]);
@@ -14,17 +15,17 @@ const HomePage = () => {
   if (!issues.length) return <p>Loading...</p>;
 
   return (
-    <>
+    <div className='cards'>
       {
         issues.map((issue, index) => {
           return (
-            <h5 key={index}>
-              <Link to={`issue/${issue.uuid}`}>{issue.name}'s Page</Link>
+            <h5 key={index} className ='card'>
+              <Link to={`issue/${issue.uuid}`} className='link'>{issue.name}</Link>
             </h5>
           );
         })
       }
-    </>
+    </div>
   );
 }
 

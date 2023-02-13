@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom";
 import axios  from 'axios'
+import './IssuePage.css'
 
 const IssuePage = ({match}) => {
   const { issueId } = useParams();
@@ -25,22 +26,22 @@ const IssuePage = ({match}) => {
           <li><strong>Exploit Available:</strong> {issue.exploit_available}</li>
           <li><strong>CVSS Score:</strong> {issue.cvss_score}</li>
           <li><strong>CVSS3 Score:</strong> {issue.cvss3_score}</li>
-          <li>
+          <li className='initial'>
             <strong>CVES:</strong>
             {issue.cves && (
               <ul>
                 {issue.cves.map((cve, index) => (
-                  <li key={index}>{cve}</li>
+                  <li key={index} className='second'>{cve}</li>
                 ))}
               </ul>
             )}
           </li>
-          <li>
+          <li className='initial'>
             <strong>External Links:</strong>
             {issue.external_links && (
               <ul>
                 {Object.values(issue.external_links).map((value, index) => (
-                  <li key={index}>
+                  <li key={index} className='second'>
                     <em>URL:</em> <a href={value.url} target="_blank">{value.url}</a>
                     <br />
                     <em>Title:</em> {value.title}
@@ -53,19 +54,21 @@ const IssuePage = ({match}) => {
           <li><strong>Created at:</strong> {issue.created_at}</li>
           <li><strong>Updated at:</strong> {issue.updated_at}</li>
           <li><strong>Deleted at:</strong> {issue.deleted_at}</li>
-          <li>
+          <li className='initial'>
             <strong>Additional Affected Assest Fields:</strong>
             {issue.additional_affected_asset_fields && (
               <ul>
                 {issue.additional_affected_asset_fields.map((assets, index) => (
-                  <li key={index}>{assets}</li>
+                  <li key={index} className='second'>{assets}</li>
                 ))}
               </ul>
             )}
           </li>
           <li><strong>Record To Remove:</strong> {issue.record_to_remove}</li>
         </ul>
-          <Link to="/">Back to homepage</Link>
+          <div className='linkContainer'>
+            <Link to="/" className='homepageLink'>Dashboard</Link>
+         </div> 
         </>
       }
     </>
