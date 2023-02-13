@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
-import axios  from 'axios'
 import './HomePage.css'
 
 const HomePage = () => {
   const [issues, setIssues] = useState([]);
 
   useEffect(() => {
-    axios.get("/public/test.json")
-    .then(res => setIssues(res.data.data))
+    fetch("/test.json")
+    .then(res => res.json())
+    .then(data => setIssues(data.data))
     .catch(err => console.log(err))
   }, []);
 

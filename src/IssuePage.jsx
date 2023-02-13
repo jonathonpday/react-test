@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from "react-router-dom";
-import axios  from 'axios'
 import './IssuePage.css'
 
 const IssuePage = ({match}) => {
@@ -8,8 +7,9 @@ const IssuePage = ({match}) => {
   const [issue, setIssue] = useState({});
 
   useEffect(() => {
-    axios.get('/public/test.json')
-    .then((res) => setIssue(res.data.data.find((issue) => issue.uuid === issueId)))
+    fetch('/test.json')
+    .then(res => res.json())
+    .then((res) => setIssue(res.data.find((issue) => issue.uuid === issueId)))
     .catch(err => console.log(err))
   }, [issueId]);
 
@@ -67,7 +67,7 @@ const IssuePage = ({match}) => {
           <li><strong>Record To Remove:</strong> {issue.record_to_remove}</li>
         </ul>
           <div className='linkContainer'>
-            <Link to="/" className='homepageLink'>Dashboard</Link>
+            <Link to="/react-test/" className='homepageLink'>Dashboard</Link>
          </div> 
         </>
       }
